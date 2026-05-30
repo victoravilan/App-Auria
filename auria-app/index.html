@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f8f5f4" />
+    <meta name="description" content="Auria App, espacio personal de cuidado, agenda, chat y aprendizaje facial." />
+    <title>Auria App</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="assets/brand/auria-icon.svg" />
+    <link rel="icon" href="assets/brand/auria-icon.svg" />
+    <link rel="stylesheet" href="style.css?v=4" />
+  </head>
+  <body>
+    <div class="phone-shell">
+      <header class="app-header" aria-label="Cabecera de Auria App">
+        <button class="brand-button" type="button" data-route="home" aria-label="Ir al inicio">
+          <img class="brand-logo" src="assets/brand/auria-logo.png" alt="Auria" />
+        </button>
+        <div class="header-actions">
+          <button class="icon-button" type="button" data-route="calendar" aria-label="Agenda">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4M4 10h16M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
+          </button>
+          <button class="icon-button" type="button" data-route="profile" aria-label="Perfil">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="view is-active" data-view="home" aria-labelledby="home-title">
+          <div class="greeting">
+            <h1 id="home-title">Hola, Marta</h1>
+            <p>Tu espacio de cuidado facial, nutricion y bienestar.</p>
+          </div>
+
+          <article class="install-card" id="installCard">
+            <div>
+              <h2>Instalar Auria App</h2>
+              <p>Abrela como app en tu movil, con acceso directo y sin barra del navegador.</p>
+            </div>
+            <button class="install-action" type="button" id="installAppButton">Instalar</button>
+          </article>
+
+          <article class="panel appointment">
+            <div class="appointment-copy">
+              <p class="section-label">Tu proxima sesion</p>
+              <h2>Kobido integral</h2>
+              <ul class="quiet-list">
+                <li><span class="mini-icon">Cal</span><span id="nextDateLabel">Viernes 29 mayo 2026</span></li>
+                <li><span class="mini-icon">Hor</span><span id="nextTimeLabel">11:00 - 12:30</span></li>
+                <li><span class="mini-icon">Loc</span>Auria Bellesa i Benestar</li>
+                <li><span class="mini-icon">G</span><span id="calendarStateLabel">Google Calendar listo para conectar</span></li>
+              </ul>
+            </div>
+            <img src="assets/images/treatment-kobido.jpg" alt="Tratamiento facial Kobido en Auria" />
+            <button class="primary-action" type="button" data-route="calendar">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4M4 10h16M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
+              Reservar cita
+            </button>
+          </article>
+
+          <article class="panel care-panel">
+            <div class="section-head">
+              <h2>Plan de cuidado</h2>
+              <button class="text-button" type="button" data-route="care">Ver todo</button>
+            </div>
+            <div class="progress-row">
+              <span id="homeCareWeek">Semana 3 de 8</span>
+              <div class="progress-track" aria-label="Progreso del plan de cuidado"><span id="homeProgressBar"></span></div>
+              <strong id="homeProgressText">0%</strong>
+            </div>
+            <div class="care-grid" id="homeCareGrid"></div>
+          </article>
+
+          <article class="panel chat-preview" role="button" tabindex="0" data-route="chat" aria-label="Abrir chat con Angels">
+            <img src="assets/images/angels-profile.jpg" alt="Angels, terapeuta de Auria" />
+            <div>
+              <h2>Mensaje de Angels</h2>
+              <p id="lastMessagePreview">Como te has sentido despues de la ultima sesion?</p>
+              <small id="lastMessageTime">Ayer, 18:30</small>
+            </div>
+            <button class="secondary-action" type="button" data-route="chat">Abrir chat</button>
+          </article>
+
+          <section class="services-home" aria-labelledby="home-services-title">
+            <div class="section-head">
+              <h2 id="home-services-title">Servicios</h2>
+              <button class="text-button" type="button" data-route="services">Ver todos</button>
+            </div>
+            <div class="service-grid" id="homeServices"></div>
+          </section>
+
+          <article class="panel game-preview">
+            <div class="game-copy">
+              <h2>Aprender rostro</h2>
+              <p>Modulo reservado para integrar el puzzle de musculos faciales, expresiones y emocion.</p>
+            <button id="btn-goto-game" class="primary-action" type="button">¡Jugar ahora!</button>
+            </div>
+            <img src="assets/images/facial-muscles-preview.png" alt="Ilustración educativa de músculos faciales" />
+          </article>
+
+          <footer style="text-align: center; font-size: 10px; font-weight: 500; color: #a1a1aa; padding: 2rem 0 1rem; text-transform: uppercase; letter-spacing: 0.05em;">
+            Creacion y diseño: Victor M. F. Avilan, Valor Agregado.<br/>Derechos reservados.
+          </footer>
+        </section>
+
+        <section class="view" data-view="calendar" aria-labelledby="calendar-title">
+          <div class="page-title">
+            <h1 id="calendar-title">Agenda</h1>
+            <p>Reserva una sesion y guardala en Google Calendar.</p>
+          </div>
+
+          <article class="panel integration-card">
+            <div>
+              <h2>Google Calendar</h2>
+              <p id="googleStatus">Modo demo activo. Anade un Client ID para crear eventos reales desde la app.</p>
+            </div>
+            <button class="secondary-action" type="button" id="connectGoogleButton">Conectar</button>
+          </article>
+
+          <div class="date-strip" id="dateStrip" aria-label="Dias disponibles"></div>
+          <div class="slot-list" id="slotList"></div>
+
+          <article class="panel booking-summary" id="bookingSummary" hidden>
+            <h2>Reserva seleccionada</h2>
+            <p id="selectedSlotText"></p>
+            <div class="button-stack">
+              <button class="primary-action" type="button" id="confirmBookingButton">Confirmar reserva</button>
+              <a class="outline-action" id="googleCalendarLink" target="_blank" rel="noreferrer">Anadir a Google Calendar</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="view" data-view="chat" aria-labelledby="chat-title">
+          <div class="page-title">
+            <h1 id="chat-title">Chat</h1>
+            <p>Seguimiento privado entre paciente y terapeuta.</p>
+          </div>
+          <div class="panel messages-panel">
+            <div class="messages" id="messages" aria-live="polite"></div>
+            <form class="message-composer" id="messageForm">
+              <label for="messageInput">Escribe tu mensaje</label>
+              <textarea id="messageInput" rows="3" placeholder="Escribe aqui tu duda o evolucion..."></textarea>
+              <button class="primary-action" type="submit">Enviar mensaje</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="view" data-view="care" aria-labelledby="care-title">
+          <div class="page-title">
+            <h1 id="care-title">Cuidado</h1>
+            <p>Rutina semanal con seguimiento simple y visible.</p>
+          </div>
+          <article class="panel care-panel">
+            <div class="section-head">
+              <h2>Semana 3 de 8</h2>
+              <strong id="careProgressText">0%</strong>
+            </div>
+            <div class="progress-track large"><span id="careProgressBar"></span></div>
+            <div class="task-list" id="taskList"></div>
+          </article>
+          <article class="panel note-card">
+            <h2>Nota de Angels</h2>
+            <p>Prioriza constancia antes que intensidad. Si notas sensibilidad, reduce presion y escribe en el chat.</p>
+          </article>
+        </section>
+
+        <section class="view" data-view="services" aria-labelledby="services-title">
+          <div class="page-title">
+            <h1 id="services-title">Servicios</h1>
+            <p>Tratamientos y acompanamiento de Auria.</p>
+          </div>
+          <div class="service-list" id="serviceList"></div>
+        </section>
+
+        <section class="view" data-view="profile" aria-labelledby="profile-title">
+          <div class="page-title">
+            <h1 id="profile-title">Perfil</h1>
+            <p>Acceso privado para pacientes de Auria.</p>
+          </div>
+          <article class="panel auth-card" id="authCard">
+            <h2>Entrar o registrarse</h2>
+            <p>Para usar chat, reservas y seguimiento en varios dispositivos necesitas una cuenta.</p>
+            <form id="authForm" class="auth-form">
+              <label>
+                Nombre
+                <input id="authName" type="text" autocomplete="name" value="Marta" />
+              </label>
+              <label>
+                Email
+                <input id="authEmail" type="email" autocomplete="email" value="marta@auria.local" required />
+              </label>
+              <label>
+                Contrasena
+                <input id="authPassword" type="password" autocomplete="current-password" value="auria-demo" required />
+              </label>
+              <div class="button-stack two">
+                <button class="primary-action" type="submit" data-auth-mode="login">Entrar</button>
+                <button class="outline-action" type="button" id="registerButton">Crear cuenta</button>
+              </div>
+            </form>
+          </article>
+          <article class="panel profile-card">
+            <img src="assets/images/studio.jpg" alt="Espacio de trabajo de Auria" />
+            <div>
+              <h2 id="profileName">Invitada</h2>
+              <p id="profileEmail">Inicia sesion para activar tu espacio privado.</p>
+              <p>Preferencias: recordatorios suaves, mensajes por la tarde y ejercicios guiados.</p>
+              <button class="outline-action" type="button" id="logoutButton" hidden>Cerrar sesion</button>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Navegacion principal">
+        <button class="is-active" type="button" data-route="home" aria-label="Inicio">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3V10.5Z"/></svg>
+          <span>Inicio</span>
+        </button>
+        <button type="button" data-route="calendar" aria-label="Agenda">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v4M17 3v4M4 9h16M6 5h12a2 2 0 0 1 2 2v13H4V7a2 2 0 0 1 2-2Z"/></svg>
+          <span>Agenda</span>
+        </button>
+        <button type="button" data-route="chat" aria-label="Chat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18 3 21V6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H5Z"/><path d="M8 9h8M8 13h5"/></svg>
+          <span>Chat</span>
+        </button>
+        <button type="button" data-route="care" aria-label="Cuidado">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-4.5 7-11a4 4 0 0 0-7-2.6A4 4 0 0 0 5 10c0 6.5 7 11 7 11Z"/></svg>
+          <span>Cuidado</span>
+        </button>
+        <button id="nav-goto-game" type="button" aria-label="Juego">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h4v5h5v4h-5v5H8v-5H3V8h5V3Z"/><path d="M17 16h4v5h-4z"/></svg>
+          <span>Juego</span>
+        </button>
+      </nav>
+    </div>
+
+    <dialog id="serviceDialog" aria-labelledby="serviceDialogTitle">
+      <form method="dialog" class="dialog-card">
+        <button class="close-button" value="cancel" aria-label="Cerrar">x</button>
+        <h2 id="serviceDialogTitle">Servicio</h2>
+        <p id="serviceDialogBody"></p>
+        <ul class="dialog-list" id="serviceDialogList"></ul>
+        <button class="primary-action" value="confirm" data-route="calendar">Reservar este servicio</button>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="config.js?v=4"></script>
+    <script src="data.js?v=4"></script>
+    <script src="calendar.js?v=4"></script>
+    <script src="app.js?v=5"></script>
+    <script>
+      // Detectar si venimos del juego con un hash en la URL para abrir la pestaña correcta
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.location.hash) {
+          const route = window.location.hash.substring(1);
+          setTimeout(() => { // Pequeño delay para dejar que app.js despierte
+            const navBtn = document.querySelector(`nav.bottom-nav button[data-route="${route}"]`);
+            if (navBtn) navBtn.click();
+          }, 50);
+        }
+      });
+
+      // Enrutamiento forzado hacia el juego paralelo (Evita bloqueos de app.js)
+      const goToGame = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.assign('juego/puzzle.html');
+      };
+      document.getElementById('btn-goto-game')?.addEventListener('click', goToGame, true);
+      document.getElementById('nav-goto-game')?.addEventListener('click', goToGame, true);
+    </script>
+  </body>
+</html>

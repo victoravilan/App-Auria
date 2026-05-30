@@ -1,0 +1,81 @@
+{
+  "users": [
+    {
+      "id": "983a3eecd85fc0859ea1f068",
+      "name": "Angels",
+      "email": "angels@auria.local",
+      "role": "therapist",
+      "passwordSalt": "d6604977ae955fb79575d8f8d8ab51c3",
+      "passwordHash": "3a294bd6fc602cd7eadf5ef3e0607f607d98a5c0d182b826cdfdb425e00b4a64",
+      "createdAt": "2026-05-27T22:09:49.301Z"
+    },
+    {
+      "id": "5fb4e7e2d7eab246f5985ee0",
+      "name": "Marta",
+      "email": "marta@auria.local",
+      "role": "patient",
+      "passwordSalt": "034cbdc60887628e26ba67a5b2f25497",
+      "passwordHash": "8c9918a78fd67c4ba739aa029cb89921e21dd38259a185188e78c37e1958f38a",
+      "createdAt": "2026-05-27T22:09:49.339Z"
+    }
+  ],
+  "sessions": [],
+  "messages": [
+    {
+      "id": "b0ba9d97ad8c368fba679c29",
+      "fromUserId": "983a3eecd85fc0859ea1f068",
+      "toUserId": "5fb4e7e2d7eab246f5985ee0",
+      "text": "Hola Marta, como esta tu piel hoy?",
+      "createdAt": "2026-05-27T22:09:49.339Z"
+    },
+    {
+      "id": "bf75e1942f8ceed869bed7c9",
+      "fromUserId": "5fb4e7e2d7eab246f5985ee0",
+      "toUserId": "983a3eecd85fc0859ea1f068",
+      "text": "Mas relajada. Tengo una duda sobre la rutina de noche.",
+      "createdAt": "2026-05-27T22:09:49.339Z"
+    },
+    {
+      "id": "3977edf60e4a9c47ff66a794",
+      "fromUserId": "983a3eecd85fc0859ea1f068",
+      "toUserId": "5fb4e7e2d7eab246f5985ee0",
+      "text": "Perfecto, revisamos hidratacion y presion del masaje.",
+      "createdAt": "2026-05-27T22:09:49.339Z"
+    }
+  ],
+  "bookings": [],
+  "care": {
+    "5fb4e7e2d7eab246f5985ee0": [
+      {
+        "id": "routine",
+        "label": "Rutina diaria",
+        "detail": "Limpieza suave y respiracion consciente.",
+        "done": true
+      },
+      {
+        "id": "massage",
+        "label": "Masaje",
+        "detail": "5 minutos de automasaje sin presion excesiva.",
+        "done": true
+      },
+      {
+        "id": "nutrition",
+        "label": "Nutricion",
+        "detail": "Registrar energia, digestion y piel.",
+        "done": true
+      },
+      {
+        "id": "hydration",
+        "label": "Hidratacion",
+        "detail": "Aumentar agua e infusiones suaves.",
+        "done": false
+      },
+      {
+        "id": "rest",
+        "label": "Descanso",
+        "detail": "Dormir con mandibula relajada.",
+        "done": false
+      }
+    ]
+  }
+}
