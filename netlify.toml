@@ -1,2 +1,3 @@
 [build]
-  publish = "auria-app"
+  base = "auria-app"
+  publish = "."
