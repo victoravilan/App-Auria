@@ -374,17 +374,30 @@ export default function EmotionPuzzle() {
               <div className="text-[10px] uppercase text-white/50">racha</div>
             </div>
           </div>
-          <video
-            key={`${round.id}-${gender}-muscle`}
-            src={round.muscleVideo[gender]}
-            poster={`${ASSETS_BASE}/images/rostro musculos hombre-mujer.PNG`}
-            className="aspect-square w-full rounded-2xl object-cover ring-1 ring-white/10"
-            controls
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
+          <div className="grid grid-cols-2 gap-2">
+            <video
+              key={`${round.id}-${gender}-face-review`}
+              src={round.faceVideo[gender]}
+              poster={stillImage}
+              className="aspect-square w-full rounded-2xl object-cover ring-1 ring-white/10"
+              controls
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+            <video
+              key={`${round.id}-${gender}-muscle`}
+              src={round.muscleVideo[gender]}
+              poster={`${ASSETS_BASE}/images/rostro musculos hombre-mujer.PNG`}
+              className="aspect-square w-full rounded-2xl object-cover ring-1 ring-white/10"
+              controls
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
           <div className="mt-3 rounded-2xl bg-black/20 p-3 ring-1 ring-white/10">
             <div className="mb-2 text-xs font-bold uppercase tracking-wider text-white/50">Musculos que construyen el gesto</div>
             <div className="space-y-2">

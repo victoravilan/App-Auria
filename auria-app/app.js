@@ -69,6 +69,17 @@ function renderProfile() {
   $("#logoutButton").hidden = !currentUser;
   $("#profileName").textContent = currentUser ? currentUser.name : "Invitada";
   $("#profileEmail").textContent = currentUser ? `${currentUser.email} - ${currentUser.role}` : "Inicia sesion para activar tu espacio privado.";
+
+  const isLogged = Boolean(currentUser);
+  if ($("#guestWelcome")) $("#guestWelcome").style.display = isLogged ? "none" : "block";
+  if ($("#userGreeting")) $("#userGreeting").style.display = isLogged ? "block" : "none";
+  if ($("#homeAppointment")) $("#homeAppointment").style.display = isLogged ? "grid" : "none";
+  if ($("#homeCareSection")) $("#homeCareSection").style.display = isLogged ? "block" : "none";
+  if ($("#homeChatPreview")) $("#homeChatPreview").style.display = isLogged ? "grid" : "none";
+
+  if (isLogged && $("#home-title")) {
+    $("#home-title").textContent = `Hola, ${currentUser.name}`;
+  }
 }
 
 function navigate(route) {
