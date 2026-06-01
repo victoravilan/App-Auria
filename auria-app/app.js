@@ -309,7 +309,12 @@ function bindEvents() {
 
   $("#installAppButton")?.addEventListener("click", async () => {
     if (!installPromptEvent) {
-      showToast("Si no aparece el instalador, usa Compartir o menu del navegador y elige Instalar app.");
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        alert("Para instalar Auria en tu iPhone/iPad:\n\n1. Toca el boton 'Compartir' (cuadrado con flecha) en la barra inferior de Safari.\n2. Selecciona 'Anadir a pantalla de inicio'.");
+      } else {
+        showToast("Si no aparece el instalador, abre el menu del navegador y elige 'Instalar aplicacion'.");
+      }
       return;
     }
     installPromptEvent.prompt();
@@ -429,7 +434,7 @@ window.addEventListener("appinstalled", () => {
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
-    const registration = await navigator.serviceWorker.register("service-worker.js?v=4").catch(() => null);
+    const registration = await navigator.serviceWorker.register("service-worker.js?v=12").catch(() => null);
     registration?.update?.();
   });
 }
